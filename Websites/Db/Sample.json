@@ -1,0 +1,125 @@
+{ "Questions": [
+{
+
+"1": {"Heading": "Mad Libs Generator" ,"detail":"One of the best ideas to start experimenting you hands-on projects for students is working on Mad Libs Generator. This is the perfect project for beginners who are just starting out with software development. Primarily focused on strings, variables, and concatenation, this project will teach you how to manipulate user-inputted data. The program design is such that it will ask users to enter a series of inputs that will be considered as a Mad Lib. Mab lib is one of the projects for beginners. <br />The input could be anything, an adjective, a noun, a pronoun, etc. Once all the inputs are entered, the application will take the data and arrange the inputs into a story template form. Sound fun, right?"
+,"Time": "4"},
+
+"2":{"Heading": "Number Guessing" ,"detail":"This is one of the simple projects yet an exciting one. You can even call it a mini-game. Make a program in which the computer randomly chooses a number between 1 to 10, 1 to 100, or any range. Then give users a hint to guess the number. Every time the user guesses wrong, he gets another clue, and his score gets reduced. The clue can be multiples, divisible, greater or smaller, or a combination of all <br /> You will also need functions to compare the inputted number with the guessed number, to compute the difference between the two, and to check whether an actual number was inputted or not in this project."
+,"Time": "2"},
+
+
+"3":{"Heading": "Login and Registration System" ,"detail":""
+,"Time": "10"},
+
+
+"4":{"Heading": "Dice Rolling Simulator" ,"detail":"As the name of the program suggests, we will be imitating a rolling dice. This is one of the interesting projects and will generate a random number each dice the program runs, and the users can use the dice repeatedly for as long as he wants. When the user rolls the dice, the program will generate a random number between 1 and 6 (as on a standard dice) <br /> The number will then be displayed to the user. It will also ask users if they would like to roll the dice again. The program should also include a function that can randomly grab a number within 1 to 6 and print it. This beginner-level projects will help build a strong foundation for fundamental programming concepts."
+,"Time": "2"},
+
+"5":{"Heading": "Hangman" ,"detail":"This is more of a “guess the word” game. The core concepts you have to use while developing this project are variables, random, integer, strings, char, input and output, and boolean. In the game, users have to enter letter guesses, and each user will have a limited number of guesses (a counter variable is needed for limiting the guesses). This is one of the interesting projects to begin with. <br />You can create a pre-organized list of words that users can grab words from. Also, you must include specific functions to check whether or not a user has entered a single letter or if the input letter is in the hidden word, to if the user has actually inputted a single letter, and to print the correct outcomes (letters)."
+,"Time": "5"},
+
+"6":{"Heading": "Contact Book" ,"detail":"This is one of the excellent projects for beginners. Everyone uses a contact book to save contact details, including name, address, phone number, and even email address. This is a command-line project where you will design a contact book application that users can use to save and find contact details. The application should also allow users to update contact information, delete contacts, and list saved contacts. The SQLite database is the ideal platform for saving contacts. To handle a project with for beginners can be helpful to build your career with a good start."
+,"Time": "3"},
+
+"7":{"Heading": "Email Slicer" ,"detail":"This is one of the convenient projects that has a lot of use in the future. The program helps get you the username and domain name from an email address. You can even customize the application and send a message to the host with this information."
+,"Time": "2"},
+
+"8":{"Heading": "Binary search algorithm" ,"detail":"Have you ever heard the proverb, “finding a needle in a haystack.” This program is designed to do just that- by using a binary search algorithm. You can create a list of random numbers between 0 to 100, with every succeeding number having a difference of 2 between them <br /> When the user inputs a random number, the program will check if that number is included in the list. It will do so by creating two halves of the list. If the program finds the number in the first half of the list, it will eliminate the other half and vice versa. The search will continue until the program finds the number input of the user or until the subarray size becomes 0 (this means that the number is not in the list). This project idea will help you create an implement an algorithm that searches for an element in a list."
+,"Time": "3"},
+
+"9":{"Heading": "Inventory system" ,"detail":"only 10 product are define hard code the person enter the amount of product sale and get the report of total sale"
+,"Time": ""},
+
+"10":{"Heading": "Story Generator" ,"detail":"This is a fun but exciting project which will work wonders with kids. In a nutshell, the program will ask users for inputs such as the name of a place, action, etc. and then build a story around the data. The story will be the same always but with little variation with the input."
+,"Time": "2"},
+
+"11":{"Heading": "YouTube video downloader" ,"detail":"One of the best ideas to start experimenting with you hands-on projects for students is working on a YouTube video downloader. More than a billion people watch YouTube every month. Sometimes there are videos we like to download permanently. YouTube doesn’t give you that option, but you can create an app with a simple UI and the ability to download YouTube videos in different formats and video quality. This project looks tough, but it is straightforward when you start working on it."
+,"Time": "10"},
+
+"12":{"Heading": "Website Blocker" ,"detail":"When we surf the internet, many unwanted websites keep showing up. This is one of the useful projects where you can build a program that blocks certain websites from opening. This program is beneficial for students who want to study without any social media distractions. Mentioning project can help your resume look much more interesting than others."
+,"Time": "12"},
+
+"13":{"Heading": " Spin a Yarn" ,"detail":"Things get more interesting here since strings are infinitely more complex to play with at the beginning <br /> The program first prompts the user to enter a series of inputs. These can be an adjective, a preposition, a proper noun, etc. Once all the inputs are in place, they are placed in a premade story template using concatenation. In the end, the full story is printed out to read some misintended madness!"
+,"Time": "3"},
+
+"14":{"Heading": "What’s the word?" ,"detail":"This name focuses on the user having to guess the randomly generated word. You can create a list from which the word would have to be guessed and also set a cap on the number of guesses allowed <br /> After this, you can create the rules yourself! When the user inputs the word, you can indicate whether the alphabet written appears in this particular position or not. You will need a function to check if the user is inputting alphabets or numbers and to display error messages appropriately."
+,"Time": "7"},
+
+"15":{"Heading": "Rock, Paper, Scissors" ,"detail":"If you are tired of having no playmate, then a 5-minute stint of rock, paper, scissors with the computer and designed by you, yourself will improve your mood <br /> We again use the random function here. You make a move first and then the program makes one. To indicate the move, you can either use a single alphabet or input an entire string. A function will have to be set up to check the validity of the move <br /> Using another function, the winner of that round is decided. You can then either give an option of playing again or decide a pre-determined number of moves in advance. A scorekeeping function will also have to be created which will return the winner at the end."
+,"Time": "10"},
+
+"16":{"Heading": "Leap it!" ,"detail":"In this project, you input a year and check whether it is a leap year or not. For this, you’ll have to create a function that recognizes the pattern of leap years and can try fitting the inputted year into the pattern. In the end, you can print the result using a boolean expression."
+,"Time": "3"},
+
+"17":{"Heading": "Find out, Fibonacci!" ,"detail":"You input a number and the function created checks whether the number belongs to the Fibonacci sequence or not. The underlying workings are similar to the above ‘Leap it!’ program <br /> One common theme in all the above projects is that they will help you to get your basics right. You will be the developer and the bug fixer. Not to mention, you’ll be closing working with creating and implementing a variety of functions along with working with variables, strings, integers, operators, etc. Just like 2 + 2 is the building block of your mathematics knowledge, so are these concepts, and learning about them in a fun way through building projects will help to understand and retain them more."
+,"Time": "8"},
+
+"18":{"Heading": "Calculator" ,"detail":"Although there isn’t much use of a calculator, however, building your graphical UI calculator will make you familiar with a library like any in which you can create buttons to perform different operations and display results on a screen."
+,"Time": "5"},
+
+"19":{"Heading": "Countdown Clock and Timer" ,"detail":"It is another utility app in which the user can set a timer, and the app notifies you when time is up."
+,"Time": "6"},
+
+"20":{"Heading": "Random Password Generator" ,"detail":"Creating a strong password and remembering it is a tedious task. You can build a program that intakes some words from the user and then generates a random password using those words. The user can remember the password with the help of the words he gave as an input."
+,"Time": "5"},
+
+"21":{"Heading": "Random Wikipedia Article" ,"detail":"This is a complicated yet straightforward program. The program searches Wikipedia and fetches a random article. Then it asks the user if he wants to read that article or not. If the answer is yes, the material is shown; otherwise, another random report is presented."
+,"Time": "10"},
+
+"22":{"Heading": "Casino Number Guessing Game" ,"detail":"3 Number are random and add them together and show to the user and the user need to guess any of the 3 number."
+,"Time": "5"},
+
+"23":{"Heading": "Validator" ,"detail":"Simple Validator to any input feild"
+,"Time": "8"},
+
+"24":{"Heading": "Alarm Clock" ,"detail":"This is one of the interesting project ideas. People all across the globe use alarm clock applications. It is quite a simple Command Line Interface (CLI) application for an intermediate-level developer. However, this project isn’t your run-of-the-mill alarm clock. In this application, you can input YouTube links in a text file and design the application to read the file. If you set a particular time in the alarm clock, it will pick a random YouTube link from the text file and play the YouTube video"
+,"Time": "10"},
+
+"25":{"Heading": "Tic-Tac-Toe" ,"detail":"We all have fond memories of playing Tic-Tac-Toe with our friends in school, don’t we? It is one of the most fun games you can play anywhere – all you need is a pen and paper! Usually, two players can play Tic-Tac-Toe at a time. The players create a 3×3 square grid. This is one of the coolest project ideas. <br />While the first player puts “X” in any one of the squares, and the second player will put an “O” in any square. This process will continue until all the squares are filled with each player putting X and O alternatively. The player who succeeds in creating a horizontal, vertical, or diagonal with three consecutive X or O on the grid wins <br /> You can use the library for building this project. is loaded with all the modules you need for computer graphics and sound."
+,"Time": "12"},
+
+"26":{"Heading": "Smart City Project" ,"detail":"Smart City project allows tourists & other visitors to the city by providing information about hotels, transportation facilities, air ticket booking, shopping details, city news etc. Hence it serves as a guide of the city to city visitors. It is a web-based software developed in Java Programming language that solves most of the problems that any new visitor faces when coming to a new city like pathfinding, hotel searching, ticket booking and more."
+,"Time": ""},
+
+"27":{"Heading": "Currency converter", "detail":"This is a simple application that you can develop using. As you can guess by the name, you will build a currency converter that can convert currencies from one unit to another, for example, converting Indian rupee into pound or euro <br /> The design of this application will be straightforward – the main focus should be the primary function, that is, converting currency units from one to another. You can use any, the standard interface to the toolkit shipped along with."
+,"Time": "5"},
+
+"28":{"Heading": "Post-it Notes" ,"detail":"Post-it notes are an excellent way to note down trivial chores so that you don’t forget to do them. In this project, we’ll make a virtual version of the physical, adhesive post-it notes. The main goal of building this application is to allow users to carry their post-it notes wherever they go (since it is on a digital platform) <br /> The application should have an option for account creation, different layouts for post-it notes, and a categorization feature to allow users to segment their notes. You can consider using Django for this project since it has an in-built user authentication feature."
+,"Time": "10"},
+
+"29":{"Heading": "Site Connectivity Checker" ,"detail":"The job of a site connectivity checker is to visit a URL and display the status of that URL, that is, whether or not it is a live URL. Usually, site connectivity checkers visit URLs at regular intervals and return the results each time. This project will work on the same lines – it will check the live status of URLs. Site connectivity checker is one of the interesting projects for beginners <br /> You must design the code for this application from scratch. As for your connections, you can either opt for TCP or ICMP. You can use click, docopt, or argparse frameworks for adding commands that will enable users to add and delete URLs from the list of URLs they want to check. "
+,"Time": "15"},
+
+"30":{"Heading": "Directory Tree Generator","detail":"A Directory Tree Generator lets you visualize the relationship between files and directories, thereby making it easier to understand the positioning of files and directories. For this project, you can use os library to list the files and directories within a specific directory. Again, docopt or argparse frameworks are excellent tools for the project. <br />These are some intermediate project ideas on which you can work. If you still like to test your knowledge and take on some tough projects"
+,"Time": "10"},
+
+"31":{"Heading": " Speed Typing Test" ,"detail":"Let’s start advanced project ideas for beginners. Do you remember the old typing test game which was used in Windows XP and before? You can create a similar program that tests your typing speed. First, you need to create a UI using a library like any. Then create a fun typing test that displays the user speed, accuracy, and words per minute in the end. You can also find source code for the program online."
+,"Time": "25"},
+
+"32":{"Heading": "Content Aggregator" ,"detail":"Only need to print popular website according to client need."
+,"Time": "5"},
+
+"33":{"Heading": "Bulk File Rename" ,"detail":"remane a files define in it."
+,"Time": "5"},
+
+"34":{"Heading": "File Explorer" ,"detail":"This is a significant project as it will test your knowledge on the various concepts of. You need to build an app that anyone uses to explore the files in their system. You can also add features like searching and copy-paste. any is a commendable choice for this project as it makes the development of applications fast and easy <br /> To create the File Explorer using any, you have to import the filedialog module from any. This module is designed for opening files and directories and saving them."
+,"Time": "10"},
+
+"35":{"Heading": "Music Player" ,"detail":"Everyone likes listening to music; you can also create your music player app. Other than playing music, your program can explore your file directories and search for music. This is one of the creative projects you might face is creating an interactive interface that can be used by regular users <br /> The app will have a neat interface that will allow users to browse through tracks, increase/decrease volume, display the name of the song, artist, album. This project will mainly involve the basics of programming, database management, algorithm construction, and data processing"
+,"Time": "15"},
+
+"36":{"Heading": "Expense Tracker" ,"detail":"As you can guess by the name, an expense tracker is a software application that lets you keep track of your expenses, and even analyze the expenses. In this project, you will build a simple expense tracker that can keep track of the user’s expenses <br /> Expense tracker is one of the trending projects which should also be able to perform statistical analysis to give accurate insights to users on their expenses so that they can plan their expenses better. You can use PySimpleto create the interface for this application, and even libraries like Pandas and Matplotlib can be handy tools for the project."
+,"Time": "15"},
+
+"37":{"Heading": "Instagram Photo Downloader" ,"detail":"This would be an app that automatically downloads all the Instagram images of your friends. As Instagram is growing everyday, this is one of the useful projects and it is quite similar to the above command line app as this app will use your credentials to open your account and then look for your friend’s ID and download their photos. This app would be handy when people want to delete pages and save just the images."
+,"Time": "18"},
+
+"38" :{"Heading": "Quiz Application" ,"detail":"This is one of the interesting project ideas to create. This is a standard quiz application that presents a set of carefully curated questions to the users (a questionnaire), allows them to answer the same, and displays the correct answer if they are wrong. Each test will display the final score of the user. The application will have an account creation option, wherein some users can be appointed as Admins <br /> These Admins can create tests for other users. In this way, the tests and quizzes continue to be updated. This application requires a database to store all the questions, answers, and scores of the users. You can also include additional features like timers for tests.","Time": "25"}
+
+}
+
+]
+
+}
+
+

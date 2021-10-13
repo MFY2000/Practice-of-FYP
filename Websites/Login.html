@@ -1,62 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
     <title>Portal</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/countdown-timer.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="assets/css/Login-Red.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/x-dropdown.css">
-</head>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css" />
+    <link rel="stylesheet" href="assets/css/countdown-timer.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.dataTables.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap4.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/Login-Red.css" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/x-dropdown.css" />
+  </head>
 
-<body>
-    <div class="container-fluid" style="/*background: url();*//*background-repeat: no-repeat;*//*background-size: cover;*/">
-        <div class="row mh-100vh">
-            <div class="col-12 col-sm-8 col-md-6 col-lg-6 offset-sm-2 offset-md-3 offset-lg-3 align-self-center d-lg-flex align-items-lg-center align-self-lg-stretch bg-white p-5 rounded rounded-lg-0 my-5 my-lg-0 my-box-shadow" data-aos="zoom-in" data-aos-once="true">
-                <div class="m-auto w-lg-75 w-xl-50" style="padding: 2%;border: 1px solid gray;">
-                    <form>
-                        <div class="form-group"><label data-aos="zoom-in" data-aos-delay="100" data-aos-once="true" class="text-secondary" style="color: #70c1da !important;">Email</label><input class="form-control" type="text" data-aos="zoom-in" data-aos-delay="100" data-aos-once="true" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}$" inputmode="email"></div>
-                        <div class="form-group"><label data-aos="zoom-in" data-aos-delay="150" data-aos-once="true" class="text-secondary" style="color: #70c1da !important;">Password</label><input class="form-control" type="password" data-aos="zoom-in" data-aos-delay="200" data-aos-once="true" required=""></div>
-                        <div class="form-row justify-content-end" data-aos="slide-right" data-aos-once="true" style="display: flex;justify-content: space-between !important;">
-                            <div class="col-auto align-self-center" style="display: flex;/*text-align: right;*/"><button class="btn btn-danger d-flex outline" data-bss-hover-animate="rubberBand" style="border-radius: 20px;" type="button">Sign up</button></div>
-                            <div class="col-auto align-self-center" style="/*text-align:right;*/"><button class="btn btn-danger d-flex outline" data-bss-hover-animate="rubberBand" style="border-radius:20px;" type="button">Login</button></div>
-                        </div>
-                    </form>
-                    <p class="text-right mt-3 mb-0" style="color: #70c1da !important;"><a class="text-danger text-info small" data-aos="fade" data-aos-delay="300" data-aos-once="true" href="#">Forgot Password?</a></p>
+  <body>
+    <div class="container-fluid" id="login" style="display: none">
+      <div class="row mh-100vh">
+        <div
+          class="
+            col-12 col-sm-8 col-md-6 col-lg-6
+            offset-sm-2 offset-md-3 offset-lg-3
+            align-self-center
+            d-lg-flex
+            align-items-lg-center align-self-lg-stretch
+            bg-white
+            p-5
+            rounded rounded-lg-0
+            my-5 my-lg-0 my-box-shadow
+          "
+          data-aos="zoom-in"
+          data-aos-once="true"
+        >
+          <div
+            class="m-auto w-lg-75 w-xl-50"
+            style="padding: 2%; border: 1px solid gray"
+          >
+            <form>
+              <div class="form-group">
+                <h3 style="color: #00ccff !important">Login</h3>
+                <label
+                  data-aos="zoom-in"
+                  data-aos-delay="100"
+                  data-aos-once="true"
+                  class="text-secondary"
+                  style="color: #70c1da !important"
+                  >Email</label
+                ><input
+                  class="form-control"
+                  type="text"
+                  data-aos="zoom-in"
+                  data-aos-delay="100"
+                  data-aos-once="true"
+                  required=""
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}$"
+                  id="email_lg"
+                  inputmode="email"
+                />
+              </div>
+              <div class="form-group">
+                <label
+                  data-aos="zoom-in"
+                  data-aos-delay="150"
+                  data-aos-once="true"
+                  class="text-secondary"
+                  style="color: #70c1da !important"
+                  >Password</label
+                ><input
+                  class="form-control"
+                  type="password"
+                  data-aos="zoom-in"
+                  data-aos-delay="200"
+                  data-aos-once="true"
+                  id="password_lg"
+                  required=""
+                />
+              </div>
+              <div
+                class="form-row justify-content-end"
+                data-aos="slide-right"
+                data-aos-once="true"
+                style="display: flex; justify-content: space-between !important"
+              >
+                <div
+                  class="col-auto align-self-center"
+                  style="display: flex; /*text-align: right;*/"
+                >
+                  <button
+                    class="btn btn-danger d-flex outline"
+                    data-bss-hover-animate="rubberBand"
+                    style="border-radius: 20px"
+                    type="button"
+                    onclick="changeState('Signup','login')"
+                  >
+                    Sign up
+                  </button>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid" id="Sign-up" style="/*background: url();*//*background-repeat: no-repeat;*//*background-size: cover;*/">
-        <div class="row mh-100vh">
-            <div class="col-12 col-sm-8 col-md-6 col-lg-6 offset-sm-2 offset-md-3 offset-lg-3 align-self-center d-lg-flex align-items-lg-center align-self-lg-stretch bg-white p-5 rounded rounded-lg-0 my-5 my-lg-0 my-box-shadow" data-aos="zoom-in" data-aos-once="true">
-                <div class="m-auto w-lg-75 w-xl-50" style="padding: 2%;border: 1px solid gray;">
-                    <form>
-                        <div class="form-group"><label data-aos="zoom-in" data-aos-delay="100" data-aos-once="true" class="text-secondary" style="color: #70c1da !important;">Name</label><input class="form-control" type="text" data-aos="zoom-in" data-aos-delay="100" data-aos-once="true" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}$" inputmode="name"></div>
-                        <div class="form-group"><label data-aos="zoom-in" data-aos-delay="100" data-aos-once="true" class="text-secondary" style="color: #70c1da !important;">Email</label><input class="form-control" type="text" data-aos="zoom-in" data-aos-delay="100" data-aos-once="true" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}$" inputmode="email"></div>
-                        <div class="form-group"><label data-aos="zoom-in" data-aos-delay="150" data-aos-once="true" class="text-secondary" style="color: #70c1da !important;">Password</label><input class="form-control" type="password" data-aos="zoom-in" data-aos-delay="200" data-aos-once="true" required="">
-                            <div class="form-row justify-content-end" data-aos="slide-right" data-aos-once="true" style="margin-top: 5%;display: flex;justify-content: space-between !important;">
-                                <div class="col-auto align-self-center" style="display: flex;/*text-align: right;*/"><button class="btn btn-danger d-flex outline" data-bss-hover-animate="rubberBand" style="border-radius: 20px;" type="button">Sign in</button></div>
-                                <div class="col-auto align-self-center" style="/*text-align:right;*/"><button class="btn btn-danger d-flex outline" data-bss-hover-animate="rubberBand" style="border-radius:20px;" type="button">Signup</button></div>
-                            </div>
-                        </div>
-                    </form>
-                    <p class="text-right mt-3 mb-0" style="color: #70c1da !important;"><a class="text-danger text-info small" data-aos="fade" data-aos-delay="300" data-aos-once="true" href="#">Forgot Password?</a></p>
+                <div
+                  class="col-auto align-self-center"
+                  style="/*text-align:right;*/"
+                >
+                  <button
+                    class="btn btn-danger d-flex outline"
+                    data-bss-hover-animate="rubberBand"
+                    style="border-radius: 20px"
+                    type="button"
+                    onclick="Login()"
+                  >
+                    Login
+                  </button>
                 </div>
-            </div>
+              </div>
+            </form>
+            <p class="text-right mt-3 mb-0" style="color: #70c1da !important">
+            </p>
+          </div>
         </div>
+      </div>
     </div>
+
+    <div
+      class="container-fluid"
+      id="Signup"
+      style="
+        /*background: url();*/ /*background-repeat: no-repeat;*/ /*background-size: cover;*/
+      "
+    >
+      <div class="row mh-100vh">
+        <div
+          class="
+            col-12 col-sm-8 col-md-6 col-lg-6
+            offset-sm-2 offset-md-3 offset-lg-3
+            align-self-center
+            d-lg-flex
+            align-items-lg-center align-self-lg-stretch
+            bg-white
+            p-5
+            rounded rounded-lg-0
+            my-5 my-lg-0 my-box-shadow
+          "
+          data-aos="zoom-in"
+          data-aos-once="true"
+        >
+          <div
+            class="m-auto w-lg-75 w-xl-50"
+            style="padding: 2%; border: 1px solid gray"
+          >
+            <form>
+              <div class="form-group">
+                <h3 style="color: #00ccff !important">Sign up</h3>
+                <label
+                  data-aos="zoom-in"
+                  data-aos-delay="100"
+                  data-aos-once="true"
+                  class="text-secondary"
+                  style="color: #70c1da !important"
+                  >Name</label
+                ><input
+                  class="form-control"
+                  type="text"
+                  data-aos="zoom-in"
+                  data-aos-delay="100"
+                  data-aos-once="true"
+                  required=""
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}$"
+                  inputmode="name"
+                />
+              </div>
+              <div class="form-group">
+                <label
+                  data-aos="zoom-in"
+                  data-aos-delay="100"
+                  data-aos-once="true"
+                  class="text-secondary"
+                  style="color: #70c1da !important"
+                  >Email</label
+                ><input
+                  class="form-control"
+                  type="text"
+                  data-aos="zoom-in"
+                  data-aos-delay="100"
+                  data-aos-once="true"
+                  required=""
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}$"
+                  inputmode="email"
+                />
+              </div>
+              <div class="form-group">
+                <label
+                  data-aos="zoom-in"
+                  data-aos-delay="150"
+                  data-aos-once="true"
+                  class="text-secondary"
+                  style="color: #70c1da !important"
+                  >Password</label
+                ><input
+                  class="form-control"
+                  type="password"
+                  data-aos="zoom-in"
+                  data-aos-delay="200"
+                  data-aos-once="true"
+                  required=""
+                />
+                <div
+                  class="form-row justify-content-end"
+                  data-aos="slide-right"
+                  data-aos-once="true"
+                  style="
+                    margin-top: 5%;
+                    display: flex;
+                    justify-content: space-between !important;
+                  "
+                >
+                  <div
+                    class="col-auto align-self-center"
+                    style="display: flex; /*text-align: right;*/"
+                  >
+                    <button
+                      class="btn btn-danger d-flex outline"
+                      data-bss-hover-animate="rubberBand"
+                      style="border-radius: 20px"
+                      type="button"
+                      onclick="changeState('login','Signup')"
+                    >
+                      Sign in
+                    </button>
+                  </div>
+                  <div
+                    class="col-auto align-self-center"
+                    style="/*text-align:right;*/"
+                  >
+                    <button
+                      class="btn btn-danger d-flex outline"
+                      data-bss-hover-animate="rubberBand"
+                      style="border-radius: 20px"
+                      type="button"
+                    >
+                      Signup
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <p class="text-right mt-3 mb-0" style="color: #70c1da !important">
+              <a
+                class="text-danger text-info small"
+                data-aos="fade"
+                data-aos-delay="300"
+                data-aos-once="true"
+                href="#"
+                >Forgot Password?</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/js/firebase.js"></script>
+    
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.6.0/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"></script>
@@ -68,8 +291,38 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js"></script>
-    <script src="assets/js/DataTable---Fully-BSS-Editable.js"></script>
-    <script src="assets/js/countdown-timer.js"></script>
-</body>
 
+    <script>
+
+      function changeState(active, closer){
+          document.getElementById(active).style.display = "block";
+          document.getElementById(closer).style.display = "none";
+      }
+
+      function Login() {
+          var email = document.getElementById("email_lg").value
+          var password = document.getElementById("password_lg").value
+          if(email == "")
+            alert("Enter Email ...")
+          else if(password == "")
+            alert("Enter Passwords ...")
+          else{
+            firebase.auth().signInWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                // Signed in
+                var user = userCredential.user;
+
+            })
+            .catch((error) => {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+            });
+          }
+      }
+
+      function Signup(){
+
+      }
+    </script>
+  </body>
 </html>
