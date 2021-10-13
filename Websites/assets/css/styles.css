@@ -1,0 +1,53 @@
+div {
+}
+
+.InputBox {
+  /*height: 30vh;*/
+  width: 100%;
+}
+
+.Icon {
+  color: #ffb800;
+}
+
+.fa.fa-star.Icon {
+  color: #ffb800;
+}
+
+IconDrop {
+  font-size: xx-large;
+  margin: 0px 5px;
+}
+
+.fa.fa-sort-down.IconDrop {
+}
+
+.fa.fa-sort-down {
+  font-size: x-large;
+  text-align: center;
+  align-items: center;
+}
+
+.dropdownTab {
+}
+
+.dropdownTab {
+  text-align: center;
+  align-items: center;
+}
+
+.UserFeild {
+  margin: 5%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.Timer {
+}
+
+.Questioner {
+  margin: 0px 5%;
+}
+
