@@ -13,7 +13,6 @@ var config = {
 
 firebase.initializeApp(config);
 
-console.log(getCookie("userId"));
 
 if (getCookie("userId") == "" && window.location.href.match("Login.html") == null){
   window.location.href = "./Login.html"
@@ -36,10 +35,7 @@ if (getCookie("userId") == "" && window.location.href.match("Login.html") == nul
       while (c.charAt(0) == ' ') {
         c = c.substring(1);
       }
-      console.log(c, "from main");
       if (c.indexOf(name) == 0) {
-        console.log(c);
-
         if(c == "userId=undefined"){
           return ""
         }
@@ -174,18 +170,61 @@ function getUserList(){
 }
 
 function gettaskDoneList(){
+    uid = getCookie("userId");
+    var taskList = getDataFromFB("users/"+uid+"/details/taskList/")
+    if(taskList == undefined)
+      taskList = [];
 
-    var taskList = getDataFromFB("")
+      const template = "";
+      for (let i = 0; i < taskList.length; i++) {
+        const element = taskList[i]["details"];
+        template = `<tr>
+          <td><a href="${element["link"]}">Task ${i+1}<br></a></td>
+          <td>${element["Time"]}</td>
 
-      const template = `<tr>
-        <td><a href="#">Task 1<br></a></td>
-        <td>10:01 pm</td>
-        <td><i class="fa fa-star Icon"></i><i class="fa fa-star Icon"></i><i class="fa fa-star Icon"></i><i class="fa fa-star Icon"></i><i class="fa fa-star-half Icon"></i></td>
-        <td style="width: 5%;"><input type="text"></td>
-      </tr>`;
+          
+          <td>
+            ${getStarCount(element["Rating"])}
+          </td>
 
+          <td style="width: 5%;">${element["Rating"] == "0" && isAdmin()? 
+            '<input type="text">':
+            '<button onClick="window.location.href('+element["link"]+')">Goto</button>'
 
-      document.getElementById("TaskList").value = "";
+          }</td>
+        </tr>`;
+        
+
+        document.getElementById("TaskList").value = template;
+      }
+}
+
+function isAdmin(){
+  return (getDataFromFB("Admin List/details/"+uid) == "true");
+}
+
+function getStarCount(runOn){
+  var starString = "";
+
+  for (let i = 0; i < parseInt(runOn); i++) {
+    starString += '<i class="fa fa-star Icon"></i>';
+  }
+
+  if(runOn.match(".5"))
+    starString += '<i class="fa fa-star-half Icon"></i>';
+  
+  return starString;
+}
+
+function SubmitWork() {
+  var input = document.getElementById("Turn it").value;
+  var date = new Date();
+  var Rating = 0;
+  var TaskNumber = getDataFromFB("users/"+uid+"/details/Task Done");
+
+  var obj = {"link": input, "Time":date, "Rating":Rating}
+
+  writeData("users/"+uid+"/details/"+TaskNumber, obj);
 }
 
 
