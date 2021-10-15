@@ -29,6 +29,7 @@ function ReturnInt(value){
 
 function setScreen(){
   var data = getDataFromFB("Running/");
+  getUserList();
 
   data = data["details"];
 

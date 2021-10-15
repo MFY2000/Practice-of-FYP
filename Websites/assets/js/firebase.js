@@ -29,6 +29,7 @@ if (getCookie("userId") == "" && window.location.href.match("Login.html") == nul
   function getCookie(cname) {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
+    console.log(decodedCookie)
     let ca = decodedCookie.split(';');
     for(let i = 0; i <ca.length; i++) {
       let c = ca[i];
@@ -69,6 +70,7 @@ if (getCookie("userId") == "" && window.location.href.match("Login.html") == nul
           
           var user = userCredential.user.uid;
           setCookie("userId",user,1);
+          debugger
           window.location.href = "./index.html";
 
         })
@@ -128,50 +130,66 @@ if (getCookie("userId") == "" && window.location.href.match("Login.html") == nul
 
   // Get any thing to the database
   function getDataFromFB(params) {
-    var Data = firebase.database().ref(params);
-    Data.on('value', (snapshot) => {  
+    var getvalue = firebase.database().ref(params);
+    getvalue.on('value', function(snapshot) {
       const data = snapshot.val();
       return data;
     });
-
   }
 
   
+
 function getUserList(){
-  var UserList = getDataFromFB("/");
-  if(UserList == undefined)
+  var getvalue = firebase.database().ref("users/");
+  getvalue.on('value', function(snapshot) {
+    const UserList = snapshot.val();
+    // var UserList = getDataFromFB("/");
+    if(UserList == undefined)
     UserList = [];
+    
 
-  console.log(UserList);
-  var template = "";
+    var template = `
+    <div class="container-fluid">
+    <div class="row"><div class="col"><div class="card shadow"><div class="card-body"><div class="table-responsive table mb-0 pt-3 pr-2"><table class="table table-striped table-sm my-0 mydatatable"><thead><tr><th><strong>Name</strong></th><th><strong>Timing</strong><br></th><th><strong>Rating</strong><br></th><th><strong>No of Task</strong></th><th><strong>Last Task</strong></th><th></th></tr></thead><tbody id="userList">`;
 
-  for (let index = 0; index < UserList.length; index++) {
-    const element = array[index];
-    var key = element.key
-    var value = element.values["details"]
-    template = `
-    <tr>
-    <td>${value.name}</td>
-    <td>${value["Timing"]}</td>
-    <td>${value["Rating"]}</td>
-    <td>${value["Task Done"]}</td>
-    <td>${value["Last Submit"]}</td>
+    for (const key in UserList) {
+      if (Object.hasOwnProperty.call(UserList, key)) {
+        const element = UserList[key]["details"];
+        console.log(element);
+        
 
-    ${key == getCookie("userId") ? 
-     `<td class="dropdownTab" onclick=""><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" onClick="">
-              <path d="M2 8C2 7.44772 2.44772 7 3 7H21C21.5523 7 22 7.44772 22 8C22 8.55228 21.5523 9 21 9H3C2.44772 9 2 8.55228 2 8Z" fill="currentColor"></path>
-              <path d="M2 12C2 11.4477 2.44772 11 3 11H21C21.5523 11 22 11.4477 22 12C22 12.5523 21.5523 13 21 13H3C2.44772 13 2 12.5523 2 12Z" fill="currentColor"></path>
-              <path d="M3 15C2.44772 15 2 15.4477 2 16C2 16.5523 2.44772 17 3 17H15C15.5523 17 16 16.5523 16 16C16 15.4477 15.5523 15 15 15H3Z" fill="currentColor"></path>
-          </svg></td>
+      template += `
+      <tr>
+      <td>${element.name}</td>
+      <td>${element["Timing"]}</td>
+      <td>${element["Rating"]}</td>
+      <td>${element["Task Done"]}</td>
+      <td>${element["Last Submit"]}</td>
+
+      ${key == getCookie("userId") ? 
+      `<td class="dropdownTab" onclick=""><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" onClick="window.location.href='./Details.html'">
+      <path d="M2 8C2 7.44772 2.44772 7 3 7H21C21.5523 7 22 7.44772 22 8C22 8.55228 21.5523 9 21 9H3C2.44772 9 2 8.55228 2 8Z" fill="currentColor"></path>
+      <path d="M2 12C2 11.4477 2.44772 11 3 11H21C21.5523 11 22 11.4477 22 12C22 12.5523 21.5523 13 21 13H3C2.44772 13 2 12.5523 2 12Z" fill="currentColor"></path>
+      <path d="M3 15C2.44772 15 2 15.4477 2 16C2 16.5523 2.44772 17 3 17H15C15.5523 17 16 16.5523 16 16C16 15.4477 15.5523 15 15 15H3Z" fill="currentColor"></path>
+      </svg></td>
       </tr>`:""}`;
-
-      document.getElementById("userList").value += template;
+      
+    }
   }
+  template += `</tbody></table></div></div></div></div></div>`;
+
+  document.getElementById("userTable").innerHTML += template;
+  });
 }
 
 function gettaskDoneList(){
     uid = getCookie("userId");
-    var taskList = getDataFromFB("users/"+uid+"/details/taskList/")
+
+    var getvalue = firebase.database().ref("users/"+uid+"/details/taskList/");
+    getvalue.on('value', function(snapshot) {
+      const taskList = snapshot.val();
+
+    // var taskList = getDataFromFB("users/"+uid+"/details/taskList/")
     if(taskList == undefined)
       taskList = [];
 
@@ -195,8 +213,9 @@ function gettaskDoneList(){
         </tr>`;
         
 
-        document.getElementById("TaskList").value = template;
+        document.getElementById("TaskList").innerHTML = template;
       }
+    });
 }
 
 function isAdmin(){
