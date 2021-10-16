@@ -137,7 +137,39 @@ if (getCookie("userId") == "" && window.location.href.match("Login.html") == nul
     });
   }
 
+
+  function CheckTask(){
+
+    var getvalue = firebase.database().ref("Running/");
+    getvalue.on('value', function(snapshot) {
+      const data = snapshot.val();
+      const taskDeadline = new Date(data);
+      console.log(taskDeadline <= (new Date()))
+      
+      if(taskDeadline <= (new Date()))
+        nextQuestion();
+      else if(data != undefined)
+        setScreen(data);
+    });
+  }
+
   
+  function setScreen(data){
+    console.log(data)
+    if(data == null)
+      data = {};
+      
+      data = data["details"];
+      
+      document.getElementById("Task").value = data["Task"];
+      document.getElementById("Language").value = data["Language"];
+      document.getElementById("Paragraph").value = data["detail"];
+      
+    initializeClock('clockdiv', data["deadLine"]);
+    
+    getUserList()
+  }
+
 
 function getUserList(){
   var getvalue = firebase.database().ref("users/");
@@ -155,10 +187,8 @@ function getUserList(){
     for (const key in UserList) {
       if (Object.hasOwnProperty.call(UserList, key)) {
         const element = UserList[key]["details"];
-        console.log(element);
         
-
-      template += `
+        template += `
       <tr>
       <td>${element.name}</td>
       <td>${element["Timing"]}</td>
@@ -172,13 +202,15 @@ function getUserList(){
       <path d="M2 12C2 11.4477 2.44772 11 3 11H21C21.5523 11 22 11.4477 22 12C22 12.5523 21.5523 13 21 13H3C2.44772 13 2 12.5523 2 12Z" fill="currentColor"></path>
       <path d="M3 15C2.44772 15 2 15.4477 2 16C2 16.5523 2.44772 17 3 17H15C15.5523 17 16 16.5523 16 16C16 15.4477 15.5523 15 15 15H3Z" fill="currentColor"></path>
       </svg></td>
-      </tr>`:""}`;
-      
+      ` : "<td class=''><td>"} </tr>`;
     }
-  }
-  template += `</tbody></table></div></div></div></div></div>`;
 
-  document.getElementById("userTable").innerHTML += template;
+  }
+  template += `</tbody></table></div></div></div></div></div></div>`;
+
+  // document.getElementsByTagName("table").item(template)
+
+  document.getElementById("userTable").innerHTML = template;
   });
 }
 
