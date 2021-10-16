@@ -29,7 +29,6 @@ if (getCookie("userId") == "" && window.location.href.match("Login.html") == nul
   function getCookie(cname) {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
-    console.log(decodedCookie)
     let ca = decodedCookie.split(';');
     for(let i = 0; i <ca.length; i++) {
       let c = ca[i];
@@ -70,7 +69,6 @@ if (getCookie("userId") == "" && window.location.href.match("Login.html") == nul
           
           var user = userCredential.user.uid;
           setCookie("userId",user,1);
-          debugger
           window.location.href = "./index.html";
 
         })
@@ -143,9 +141,11 @@ if (getCookie("userId") == "" && window.location.href.match("Login.html") == nul
     var getvalue = firebase.database().ref("Running/");
     getvalue.on('value', function(snapshot) {
       const data = snapshot.val();
-      const taskDeadline = new Date(data);
-      console.log(taskDeadline <= (new Date()))
+      const taskDeadline = new Date(data["details"]["deadLine"]);
       
+      if(taskDeadline == undefined)
+       nextQuestion();
+
       if(taskDeadline <= (new Date()))
         nextQuestion();
       else if(data != undefined)

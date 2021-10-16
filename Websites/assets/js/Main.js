@@ -1,26 +1,34 @@
 
 function  nextQuestion() {
- 
-var Questionslimit = ("38");
-var LanguagesLimit = ("10");
+  var getvalue = firebase.database().ref("/");
+      getvalue.on('value', function(snapshot) {
+        const data = snapshot.val();
 
-var randomQuestion = ReturnInt(Math.random() * Questionslimit);
-var randomLanguage = ReturnInt(Math.random() * LanguagesLimit);
+        
+  var Questionslimit = data["Questions"]["Total"]["details"];
+  var LanguagesLimit = data["Languages"]["Total"]["details"];
+  
+  var randomQuestion = ReturnInt(Math.random() * Questionslimit);
+  var randomLanguage = ReturnInt(Math.random() * LanguagesLimit);
+  
+  var Question = data["Questions"][randomQuestion]["details"], 
+  Language = data["Languages"][randomLanguage];
 
-var Question = getDataFromFB("Questions/" + randomQuestion + "/details/");
-var Language = getDataFromFB("Languages/" + randomLanguage + "/");
+  var hardQA = ReturnInt(Question.Time)
+  var hardLn = ReturnInt(Language.Time)
+  
+  const deadLine = new Date(new Date().setDate(new Date().getDate() + (hardQA + hardLn)));
 
-var hardQA = ReturnInt(Question.Time)
-var hardLn = ReturnInt(Language.Time)
+  console.log(deadLine);
+  
+  initializeClock('clockdiv', deadLine);
 
-var TotalDays = hardQA + hardLn;
-const deadLine = new Date(new Date().setDate(new Date().getDate() + TotalDays));
+  var Running = {"Task":(Question.Heading),"detail":(Question.detail),"Language":(Language.details), "deadLine": deadLine}
+  writeData("Running/",Running)
 
-initializeClock('clockdiv', deadLine);
 
-var Running = {"Task":(Question.Heading),"detail":(Question.detail),"Language":(Language.details), "deadLine": deadLine}
-writeData("Running/",Running)
-
+  setScreen({"details":data});
+  });
 }
 
 function ReturnInt(value){
