@@ -1,8 +1,8 @@
 
 function  nextQuestion() {
   var getvalue = firebase.database().ref("/");
-      getvalue.on('value', function(snapshot) {
-        const data = snapshot.val();
+  getvalue.on('value', function(snapshot) {
+  const data = snapshot.val();
 
         
   var Questionslimit = data["Questions"]["Total"]["details"];
@@ -14,30 +14,32 @@ function  nextQuestion() {
   var Question = data["Questions"][randomQuestion]["details"], 
   Language = data["Languages"][randomLanguage];
 
+  console.log(Question.Time,Language.Time)
+
   var hardQA = ReturnInt(Question.Time)
   var hardLn = ReturnInt(Language.Time)
   
   const deadLine = new Date(new Date().setDate(new Date().getDate() + (hardQA + hardLn)));
 
-  console.log(deadLine);
-  
+
   initializeClock('clockdiv', deadLine);
 
-  var Running = {"Task":(Question.Heading),"detail":(Question.detail),"Language":(Language.details), "deadLine": deadLine}
+  var Running = {"Task":(Question.Heading),"detail":(Question.detail),"Language":(Language.details), "deadLine": deadLine.toString()}
   writeData("Running/",Running)
+  console.log(Running)
 
+  
+  if(Running.deadLine != undefined)
+    setScreen({"details":Running});
 
-  setScreen({"details":data});
   });
+
+  ref.off("value", getvalue)
 }
 
 function ReturnInt(value){
   return (parseInt(value))
 }
 
-
-
-
-CheckTask()
 
 
