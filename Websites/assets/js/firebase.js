@@ -56,6 +56,7 @@ if (getCookie("userId") == "" && window.location.href.match("Login.html") == nul
 
 // Login to the portal
   function Login() {
+
     var email = document.getElementById("email_lg").value
     var password = document.getElementById("password_lg").value
     if (email == "")
@@ -140,19 +141,22 @@ if (getCookie("userId") == "" && window.location.href.match("Login.html") == nul
 
     var getvalue = firebase.database().ref("Running/");
     getvalue.on('value', function(snapshot) {
-      const data = snapshot.val();
-      const taskDeadline = new Date(data["details"]["deadLine"]);
-      
-      if(taskDeadline == undefined)
-       nextQuestion();
+      try {
+        const data = snapshot.val();
+        const taskDeadline = new Date(data["details"]["deadLine"]);
 
-      if(taskDeadline <= (new Date()))
-        nextQuestion();
-      else if(data != undefined)
-        setScreen(data);
+        if(taskDeadline <= (new Date()))
+          nextQuestion();
+        else if(data != undefined)
+          setScreen(data);
+  
+      } catch (error) {
+       nextQuestion();
+      }
+      
+      
     });
   }
-
   
   function setScreen(data){
     console.log(data)
@@ -161,9 +165,9 @@ if (getCookie("userId") == "" && window.location.href.match("Login.html") == nul
       
       data = data["details"];
       
-      document.getElementById("Task").value = data["Task"];
-      document.getElementById("Language").value = data["Language"];
-      document.getElementById("Paragraph").value = data["detail"];
+      document.getElementById("Task").innerHTML = data["Task"];
+      document.getElementById("Language").innerHTML = data["Language"];
+      document.getElementById("Paragraph").innerHTML = data["detail"];
       
     initializeClock('clockdiv', data["deadLine"]);
     
@@ -175,7 +179,6 @@ function getUserList(){
   var getvalue = firebase.database().ref("users/");
   getvalue.on('value', function(snapshot) {
     const UserList = snapshot.val();
-    // var UserList = getDataFromFB("/");
     if(UserList == undefined)
     UserList = [];
     
@@ -193,7 +196,7 @@ function getUserList(){
       <td>${element.name}</td>
       <td>${element["Timing"]}</td>
       <td>${element["Rating"]}</td>
-      <td>${element["Task Done"]}</td>
+      <td id='${key}_taskNumber'>${element["Task Done"]}</td>
       <td>${element["Last Submit"]}</td>
 
       ${key == getCookie("userId") ? 
@@ -220,33 +223,33 @@ function gettaskDoneList(){
     var getvalue = firebase.database().ref("users/"+uid+"/details/taskList/");
     getvalue.on('value', function(snapshot) {
       const taskList = snapshot.val();
+      console.log(taskList);
 
-    // var taskList = getDataFromFB("users/"+uid+"/details/taskList/")
     if(taskList == undefined)
-      taskList = [];
+      taskList = {};
 
       const template = "";
-      for (let i = 0; i < taskList.length; i++) {
-        const element = taskList[i]["details"];
-        template = `<tr>
-          <td><a href="${element["link"]}">Task ${i+1}<br></a></td>
-          <td>${element["Time"]}</td>
 
-          
+      for (const key in taskList) {
+        if (Object.hasOwnProperty.call(taskList, key)) {
+          const element = taskList[key]["details"];
+
+          template += `<tr>
+          <td><a href="${element["link"]}">Task ${key}<br></a></td>
+          <td>${element["Time"]}</td>
           <td>
             ${getStarCount(element["Rating"])}
           </td>
-
           <td style="width: 5%;">${element["Rating"] == "0" && isAdmin()? 
             '<input type="text">':
             '<button onClick="window.location.href('+element["link"]+')">Goto</button>'
 
           }</td>
         </tr>`;
-        
-
-        document.getElementById("TaskList").innerHTML = template;
       }
+      document.getElementById("TaskList").innerHTML = template;
+      }
+
     });
 }
 
@@ -255,6 +258,7 @@ function isAdmin(){
 }
 
 function getStarCount(runOn){
+  console.log(runOn)
   var starString = "";
 
   for (let i = 0; i < parseInt(runOn); i++) {
@@ -271,11 +275,13 @@ function SubmitWork() {
   var input = document.getElementById("Turn it").value;
   var date = new Date();
   var Rating = 0;
-  var TaskNumber = getDataFromFB("users/"+uid+"/details/Task Done");
+  var uid = getCookie("userId");
 
+  var TaskNumber = parseInt(document.getElementById(uid+"_taskNumber").innerHTML) + 1
+  
   var obj = {"link": input, "Time":date, "Rating":Rating}
 
-  writeData("users/"+uid+"/details/"+TaskNumber, obj);
+  writeData("users/"+uid+"/details/taskList/"+TaskNumber, obj);
 }
 
 
@@ -300,6 +306,17 @@ function SubmitWork() {
     });
   }
 
+
+
+  function myFunction() {
+    myVar = setTimeout(showPage, 3000);
+  }
+  
+  function showPage() {
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("mainBody").style.display = "block";
+  }
+  
 
 
 // setQuestion();
