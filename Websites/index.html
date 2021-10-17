@@ -23,7 +23,11 @@
     
 </head>
 
-<body>
+<body onload="myFunction(), CheckTask()" style="margin:0;">
+    <div id="loader"></div>
+
+<section id="mainBody">
+
     <section style="margin: 5%;">
         <div id="wrapper">
             <div class="container">
@@ -61,12 +65,12 @@
         <div class="InputBox">
             <div class="UserFeild" style="padding: 2%;">
                 <input type="text" style="height: 5vh;width: 30%;" id="Turn it">
-                <button class="btn btn-primary" type="button" style="height: 5vh;text-align: center;align-items: center;padding: 3px 15px;" onclick="SumbitWork()">Turn in</button></div>
+                <button class="btn btn-primary" type="button" style="height: 5vh;text-align: center;align-items: center;padding: 3px 15px;" onclick="SubmitWork()">Turn in</button></div>
         </div>
     </section>
     <section class="mt-4" id="userTable">
-
     </section>
+</section>
     
     
     <script src="assets/js/jquery.min.js"></script>
